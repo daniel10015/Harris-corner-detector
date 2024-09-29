@@ -85,19 +85,23 @@
     <ClCompile Include="src\utils.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include=".gitattributes" />
-    <None Include=".gitignore" />
-    <None Include="images\*.ppm" />
-    <None Include="README.md" />
-  </ItemGroup>
-  <ItemGroup>
     <Text Include="LICENSE.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\HarrisOps.cuh" />
+    <CudaCompile Include="src\HarrisOps.cu" />
+    <CudaCompile Include="src\HarrisOps.cuh" />
     <ClInclude Include="src\Image.h" />
-    <ClInclude Include="src\sobel.cuh" />
+    <CudaCompile Include="src\sobel.cuh" />
     <ClInclude Include="src\utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitattributes" />
+    <None Include=".gitignore" />
+    <None Include="images\car_1.ppm" />
+    <None Include="images\car_1_grayscale.ppm" />
+    <None Include="images\car_1_grayscale_gaus.ppm" />
+    <None Include="images\car_1_grayscale_Ix.ppm" />
+    <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

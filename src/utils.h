@@ -1,6 +1,7 @@
 #pragma once
 #include <cstdint>
 #include <algorithm>
+#include <vector>
 
 #define E_APPROX 2.71828182845904523536028747135266249775724709369995
 #define PI_APPROX 3.14159265358979323846264338327950288419716939937510
@@ -9,38 +10,18 @@
 uint8_t floatToByte(float value);
 
 // Just so we can look more similar to cuda
-void hostAllocate(float* data_ptr, size_t size)
-{
-	data_ptr = new float[size];
-}
+void hostAllocate(float*& data_ptr, size_t size);
 
 // Just so we can look more similar to cuda
-void deleteHostAllocate(void* data)
-{
-	delete[] data;
-}
+void deleteHostAllocate(float*& data);
 
 // doesn't expect for size=1, function won't work
-void CreateKernel(float* kernel, size_t size)
-{
-    int radius = size / 2;
-    float sigma = std::max(float(radius / 2), 1.0);
-    float sum = 0;
+void CreateNormalKernel(float* kernel, size_t size);
 
-    // populate kernel 
-    for (int x = -radius; x <= radius; x++)
-    {
-        for (int y = -radius; y <= radius; y++)
-        {
-            // compute guas distribution 
-            double exponentNumerator = double(-1 * (x * x + y * y));
-            double exponentDenominator = (2 * sigma * sigma);
-            double eExpression = pow(E_APPROX, exponentNumerator / exponentDenominator);
+// fixed-size of 9
+void CreateGyKernel(float* kernel);
 
-            float kernelValue = (eExpression / (2 * PI_APPROX * sigma * sigma));
+// fixed-size of 9
+void CreateGxKernel(float* kernel);
 
-            kernel[(y + radius) * size + (x + radius)] = kernelValue;
-            sum += kernelValue;
-        }
-    }
-}
+void NormalizeVec(std::vector<float>& vec, float lower, float upper);

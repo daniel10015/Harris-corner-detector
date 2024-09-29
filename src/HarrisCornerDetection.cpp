@@ -23,5 +23,8 @@ int main(int argc, char** argv)
 	GrayscaleImage outputImg = {};
 	HarrisCornerDetection(outputImg, grayImg);
 
+	// save final image
+	saveGrayscaleImagePGM(outputImg.pixels, outputImg.width, outputImg.height, image_path.substr(0, image_path.size() - 4) + "_grayscale_Ix.ppm");
+
 	return 0;
 }
