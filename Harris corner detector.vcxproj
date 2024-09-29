@@ -94,7 +94,9 @@
     <Text Include="LICENSE.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\HarrisOps.cuh" />
     <ClInclude Include="src\Image.h" />
+    <ClInclude Include="src\sobel.cuh" />
     <ClInclude Include="src\utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

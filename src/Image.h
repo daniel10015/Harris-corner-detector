@@ -36,4 +36,5 @@ void ppmToGrayscale(GrayscaleImage* gray, PPMImage* ppm);
 void saveGrayscaleImagePGM(const std::vector<float>& pixels, int width, int height, const std::string& filename);
 
 // default radius to 5 if none is given
+// TODO make it parallel to increase performance
 void gausBlurrGrayscale(GrayscaleImage* gray, int radius = 5);
