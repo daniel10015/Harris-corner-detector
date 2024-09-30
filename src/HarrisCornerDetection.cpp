@@ -8,7 +8,7 @@ int main(int argc, char** argv)
 	// initially load image from color -> grayscale -> blur (to remove noise)
 	// then start compute
 
-	std::string image_path = "images/car_1.ppm";
+	std::string image_path = "images/sage_1.ppm";
 	// object to load in ppm image data (both binary and plain text)
 	PPMImage img;
 	GrayscaleImage grayImg;

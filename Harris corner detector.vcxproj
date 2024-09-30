@@ -106,7 +106,15 @@
     <None Include="images\car_1_grayscale_Ixy.ppm" />
     <None Include="images\car_1_grayscale_Iy.ppm" />
     <None Include="images\car_1_grayscale_R.ppm" />
+    <None Include="images\sage_1.ppm" />
+    <None Include="images\sage_1_grayscale_R.ppm" />
     <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="images\car_1.jpg" />
+    <Image Include="images\car_1_grayscale_R.jpg" />
+    <Image Include="images\sage_1.jpg" />
+    <Image Include="images\sage_1_grayscale_R.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
