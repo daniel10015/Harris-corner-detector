@@ -90,6 +90,7 @@
   <ItemGroup>
     <CudaCompile Include="src\HarrisOps.cu" />
     <CudaCompile Include="src\HarrisOps.cuh" />
+    <ClInclude Include="src\Timer.h" />
     <ClInclude Include="src\Image.h" />
     <CudaCompile Include="src\sobel.cuh" />
     <ClInclude Include="src\utils.h" />
@@ -101,6 +102,10 @@
     <None Include="images\car_1_grayscale.ppm" />
     <None Include="images\car_1_grayscale_gaus.ppm" />
     <None Include="images\car_1_grayscale_Ix.ppm" />
+    <None Include="images\car_1_grayscale_Ixx.ppm" />
+    <None Include="images\car_1_grayscale_Ixy.ppm" />
+    <None Include="images\car_1_grayscale_Iy.ppm" />
+    <None Include="images\car_1_grayscale_R.ppm" />
     <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

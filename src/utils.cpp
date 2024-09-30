@@ -1,5 +1,8 @@
 #include "utils.h"
 #include <algorithm>
+#ifdef _DEBUG
+#include <iostream>
+#endif /* _DEBUG */
 
 // Convert a float in the range [0, 1] to an 8-bit unsigned integer in the range [0, 255]
 uint8_t floatToByte(float value) {
@@ -18,9 +21,9 @@ void deleteHostAllocate(float*& data)
 }
 
 // doesn't expect for size=1, function won't work
-void CreateNormalKernel(float* kernel, size_t size)
+void CreateNormalKernel(float* Kernel, size_t size)
 {
-    int radius = size / 2;
+    int radius = size/2;
     float sigma = float(radius / 2);
     float sum = 0;
 
@@ -36,10 +39,11 @@ void CreateNormalKernel(float* kernel, size_t size)
 
             float kernelValue = (eExpression / (2 * PI_APPROX * sigma * sigma));
 
-            kernel[(y + radius) * size + (x + radius)] = kernelValue;
+            Kernel[(y + radius) * size + (x + radius)] = kernelValue;
             sum += kernelValue;
         }
     }
+    return;
 }
 
 void CreateGyKernel(float* kernel)

@@ -101,23 +101,38 @@ void ppmToGrayscale(GrayscaleImage* gray, PPMImage* ppm)
 }
 
 // Save grayscale image data in PGM format (Portable Graymap)
-void saveGrayscaleImagePGM(const std::vector<float>& pixels, int width, int height, const std::string& filename) {
+void saveGrayscaleImagePGM(const std::vector<float>& pixels, int width, int height, const std::string& filename) 
+{
     std::ofstream file(filename, std::ios::binary);
     if (!file.is_open()) {
         std::cerr << "Failed to open file for writing: " << filename << std::endl;
         return;
     }
 
-    // Write PGM header
-    file << "P6\n" << width << " " << height << "\n255\n";
+    // dimensions check
+    if (width * height != pixels.size())
+    {
+        std::cout << "-----WARNING: width/height != pixels-----\n";
+        std::cout << "width/height: " << width << "/" << height << ", " << width * height << std::endl;
+        std::cout << "pixel size: " << pixels.size() << std::endl;
+    }
 
+    // Write PGM header
+    file << "P6\r\n" << width << " " << height << "\r\n255\r\n";
+
+    uint8_t byteValue;
     // Write pixel data
     for (float pixel : pixels) {
-        uint8_t byteValue = floatToByte(pixel);
+        byteValue = floatToByte(pixel);
         file.write(reinterpret_cast<char*>(&byteValue), sizeof(byteValue));
         // write 2 more times for *.ppm
         file.write(reinterpret_cast<char*>(&byteValue), sizeof(byteValue));
         file.write(reinterpret_cast<char*>(&byteValue), sizeof(byteValue));
+    }
+
+    if (!file.good()) 
+    {
+        std::cerr << "File write error occurred!" << std::endl;
     }
 
     file.close();
