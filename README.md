@@ -12,6 +12,8 @@
 <tr>
 <th><img src="images/sage_1.jpg" /><br>Original Image from sage_1.ppm</th>
 <th><img src="images/sage_1_grayscale_R.jpg" /><br>Edges with no threshold</th>
+</tr>
+<tr>
 <th><img src="images/car_1.jpg" /><br>Original Image from car_1.ppm</th>
 <th><img src="images/car_1_grayscale_R.jpg" /><br>Edges with no threshold</th>
 </tr>
