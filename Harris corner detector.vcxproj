@@ -98,6 +98,14 @@
   <ItemGroup>
     <None Include=".gitattributes" />
     <None Include=".gitignore" />
+    <None Include="images\4K-test-christian-heitz.ppm" />
+    <None Include="images\4K-test-christian-heitz_grayscale.ppm" />
+    <None Include="images\4K-test-christian-heitz_grayscale_gaus.ppm" />
+    <None Include="images\4K-test-christian-heitz_grayscale_R.ppm" />
+    <None Include="images\borabora_1.ppm" />
+    <None Include="images\borabora_2.ppm" />
+    <None Include="images\boxes_1.ppm" />
+    <None Include="images\boxes_2.ppm" />
     <None Include="images\car_1.ppm" />
     <None Include="images\car_1_grayscale.ppm" />
     <None Include="images\car_1_grayscale_gaus.ppm" />
