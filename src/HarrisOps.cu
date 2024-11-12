@@ -100,20 +100,21 @@ void HarrisCornerDetection(GrayscaleImage& dstImg, GrayscaleImage& srcImg)
     const int NUMBER_OF_BLOCKS = (N + THREADS_PER_BLOCK - 1) / THREADS_PER_BLOCK;
     cudaError_t err;
 
-    float* h_Ix = nullptr,            * h_Iy = nullptr;
-    float* d_Ix = nullptr,            * d_Iy = nullptr; 
-    float* d_Ixx = nullptr,           * d_Iyy = nullptr,        * d_Ixy = nullptr;
-    float* d_Sxx = nullptr,           * d_Sxy = nullptr,        * d_Syy = nullptr;
-    float* d_MDet = nullptr,          * d_MTrace = nullptr,     * d_MR = nullptr;
+    float* h_Ix   = nullptr, * h_Iy     = nullptr;
+    float* d_Ix   = nullptr, * d_Iy     = nullptr; 
+    float* d_Ixx  = nullptr, * d_Iyy    = nullptr,     * d_Ixy = nullptr;
+    float* d_Sxx  = nullptr, * d_Sxy    = nullptr,     * d_Syy = nullptr;
+    float* d_MDet = nullptr, * d_MTrace = nullptr,     * d_MR  = nullptr;
     float* d_MDetFirstTerm = nullptr, * d_MDetSecondTerm = nullptr;
 
     // allocate gradients
     hostAllocate(h_Ix, N); hostAllocate(h_Iy, N);
-    cudaMalloc((void**)&d_Ix, NBytes); cudaMalloc((void**)&d_Iy, NBytes);
-    cudaMalloc((void**)&d_Ixx, NBytes); cudaMalloc((void**)&d_Iyy, NBytes); cudaMalloc((void**)&d_Ixy, NBytes);
-    cudaMalloc((void**)&d_Sxx, finalNBytes); cudaMalloc((void**)&d_Syy, finalNBytes); cudaMalloc((void**)&d_Sxy, finalNBytes);
+
+    cudaMalloc((void**)&d_Ix, NBytes);                 cudaMalloc((void**)&d_Iy, NBytes);
+    cudaMalloc((void**)&d_Ixx, NBytes);                cudaMalloc((void**)&d_Iyy, NBytes);                cudaMalloc((void**)&d_Ixy, NBytes);
+    cudaMalloc((void**)&d_Sxx, finalNBytes);           cudaMalloc((void**)&d_Syy, finalNBytes);           cudaMalloc((void**)&d_Sxy, finalNBytes);
     cudaMalloc((void**)&d_MDetFirstTerm, finalNBytes); cudaMalloc((void**)&d_MDetSecondTerm, finalNBytes);
-    cudaMalloc((void**)&d_MDet, finalNBytes); cudaMalloc((void**)&d_MTrace, finalNBytes);
+    cudaMalloc((void**)&d_MDet, finalNBytes);          cudaMalloc((void**)&d_MTrace, finalNBytes);
     cudaMalloc((void**)&d_MR, finalNBytes);
     
 
