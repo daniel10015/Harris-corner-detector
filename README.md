@@ -18,3 +18,11 @@
 <th><img src="images/car_1_grayscale_R.jpg" /><br>Edges with no threshold</th>
 </tr>
 </table>
+
+I made a slideshow about this: [slideshow](https://docs.google.com/presentation/d/1gGY89pJ000mCDPW12djSILQ97Z5pinJXMIT3WELiA3I/edit?usp=sharing)
+
+The slideshow include information on:
+	- Motivation
+	- CUDA intro
+	- Implementation with CUDA
+	- Benchmark results
